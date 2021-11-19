@@ -1,0 +1,77 @@
+https://cursos.alura.com.br/category/front-end
+https://cursos.alura.com.br/course/javascript-es6-orientacao-a-objetos-parte-1
+
+npm install -g live server
+Clicar em Go Live, na barra inferios do VSCode
+
+
+1 - PRÓLOGO: REGRAS, CÓDIGO E MANUTENÇÃO 
+Modelo MVC
+	Model
+	Controller
+	View
+
+2 - ESPECIFICANDO UMA NEGOCIAÇÃO
+Quando criamos uma função dentro de uma classe, nós chamaremos a primeira de método. 
+	Quando a função estiver fora da classe, continuará sendo chamada de função.
+Para definirmos atributos de instância de uma classe, precisamos adicionar em sua definição um constructor. 
+	É através do construtor que adicionamos na variável implícita this as propriedades que desejamos que toda instância da classe tenha.
+Utilizar a convenção de que nos atributos das propriedades de uma classe que não pode ser modificada, usaremos um underline (_)
+Essa convenção que informará ao programador que as propriedades que contenham _ só poderão ser acessadas pelos próprios métodos da classe
+O get foi seguido de um método, que tem o nome das propriedades antes de adicionarmos o _
+	Estamos criando uma propriedade getter de acesso à leitura. 
+	E mesmo sendo um método, poderemos acessá-lo como uma propriedade. Mas, debaixo dos panos, ele continuará sendo executado como um método.
+Congelar um objeto usando o método Object.freeze(this)
+Programação defensiva (para a data, usando o getTime)
+Substituindo var por let  (se declaramos as variáveis usando o let, estas ganharam um escopo de bloco)
+*Quando usamos a sintaxe class, somos obrigados a usar o operador new para criarmos instâncias dessa classe
+
+
+3 - A LIGAÇÃO ENTRE AS AÇÕES DO USUÁRIO E O MODELO
+Associando métodos do controller às ações do usuário
+Em JavaScript temos as First Class Functions, podemos declarar a variável $ - como usado no jQuery - e dentro, jogaremos o document.querySelector
+Melhorar a performance, adicionaremos o constructor (só fará uma busca no DOM pelos elementos).
+Criando um objeto Date
+Arrow Functions
+
+4 - LIDAR COM DATA É TRABALHOSO? CHAME UM AJUDANTE!
+Exibindo o objeto Date no formato dia/mês/ano
+Isolando a responsabilidade de conversão de datas em uma classe separada
+Métodos estáticos (que torna desnecessário a criação de uma instância)
+Template Strings para interpolar valores usando crase `eu sou ${nome} ${sobrenome}`
+Blindar as negociações dentro da lista (usando o método concat)
+	concatenação de um array vazio [] com outras listas
+Expressão regular para data 
+	/^\d{4}-\d{2}-\d{2}$/   O ˆ indica "começando com " e o $ "terminando com"
+
+5 - TEMOS O MODELO, MAS E A VIEW?
+Classes que representam nossas Views
+	Sinalizaremos o local em que o template será renderizado, adicionando a tag <div> e dentro, o id no .html
+	O innerHTML será responsável por converter as strings em elementos do DOM. Isto será inserido com filho da <div>
+Construindo um template dinâmico com a função map
+	O map recebe uma função como parâmetro
+Totalizando o volume em nosso Template com a função reduce
+	A função reduce(), que irá processar o array e no fim, disponibiliza um único resultado
+****************
+FUNÇÃO:
+numeros.reduce(function(total,num) {
+    return total * num;
+}, 1);
+
+FUNÇÃO COM ARROW FUNCTION
+numeros.reduce((total, num) => total * num , 1);
+
+FUNÇÃO 2:
+let dobro = numeros.map(function(num) {
+    return num * 2;
+
+FUNÇÃO 2 COM ARROW FUNCTION:
+let dobro = numeros.map(num => num * 2);
+*****************
+
+6 - GENERALIZANDO A SOLUÇÃO DA NOSSA VIEW
+Herança e reutilização de código
+	usando o "Classe1 extends Classe2" no js
+	no .html, o script do arquivo Classe2.js deve vir antes do script do arquivo Classe1.js
+	precisamos ter um constructor() que recebe o elemento. O construtor chamará o super() - fazendo referência ao super class, a classe pai
+    		constructor(elemento) {super(elemento);}
